@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Menu from "../components/Menu.astro";
+import ReturnButton from "../components/ReturnButton.astro";
+---
+
+<Layout title="404 Not Found - SamBlog">
+    <Menu />
+    <main>
+        <header>
+            <h1>{'¡Ups!'}, <code style="color: red; background-color: rgb(164, 164, 164);">404</code>: Not Found</h1>
+            <span>La página a la que apuntas no existe, revisa por si hay errores en la ruta.</span>
+        </header>
+        <ReturnButton />
+    </main>
+</Layout>
+
+<style>
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4vh;
+    }
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+</style>

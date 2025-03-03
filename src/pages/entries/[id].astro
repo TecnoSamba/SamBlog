@@ -1,0 +1,128 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import '../../styles/global.css'
+import ReturnButton from "../../components/ReturnButton.astro";
+
+export async function getStaticPaths() {
+    const entries = await getCollection('entry')
+
+    return entries.map(entry => ({
+        params: {
+            id: entry.slug
+        },
+        props: {entry}
+    }))
+}
+const {entry} = Astro.props
+const {data, slug} = entry
+const {title, author, img, date} = data
+
+const {Content} = await render(entry)
+---
+
+<Layout title={title + ' - SamBlog'}>
+    <main>
+        <header>
+            <div class="title">
+                <h1 transition:name={'title-' + slug}>{title}</h1>
+            </div>
+            <img src={'/entries/' + img} alt="imagen del post">
+            <div class="author-date">
+                <div class="author">
+                    <img src={'/authors/' + author + '.jpg'} alt="autor" />
+                    <span>{author}</span>
+                </div>
+                <div class="date">
+                    <span>{date}</span>
+                </div>
+            </div>
+        </header>
+        <article>
+            <div class="content">
+                <Content />
+                <ReturnButton />
+            </div>
+        </article>
+    </main>
+</Layout>
+
+<style>
+    h1 {
+        font-family: 'Fira Code';
+        font-size: 5ch;
+    }
+    header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-rows: minmax(100px, auto);
+        .title {
+            grid-column: 2/3;
+            grid-row: 1;
+            display: flex;
+            justify-content: start;
+        }
+        img {
+            grid-column: 2/3;
+            grid-row: 2;
+            border-radius: 5px;
+            max-height: 400px;
+            max-width: 1000px;
+        }
+        .author-date {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column: 2/3;
+            grid-row: 3;
+            img {
+                border-radius: 50%;
+                height: 4ch;
+                width: 4ch;
+            }
+            .author {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+            .date {
+                display: flex;
+                align-items: center;
+                justify-content: end;
+            }
+        }
+    }
+    article {
+        min-width: 100vw;
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr;
+        .content {
+            grid-column: 2/3;
+        }
+    }
+    @media (max-width: 1250px) {
+        * {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+        }
+        article {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .content {
+                flex-grow: 999;
+            }
+        }
+        header {
+            img {
+                max-width: none;
+                max-height: none;
+            }
+        }
+    }
+</style>

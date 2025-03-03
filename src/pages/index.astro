@@ -1,8 +1,156 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Menu from '../components/Menu.astro'
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import tecnosamba21 from '/public/authors/tecnosamba21.jpg'
+
+const entries = await getCollection('entry')
+const JavaScript = {
+	label: 'JavaScript',
+	class: 'javascript'
+}
+const Html = {
+	label: 'Html',
+	class: 'html'
+}
+const Css = {
+	label: 'Css',
+	class: 'css'
+}
+const Others = {
+	label: 'Others',
+	class: 'others'
+}
 ---
 
-<Layout title='🪐Desarrollo Web en Español - SamBlog'>
-	<Welcome />
+<Layout title='Desarrollo Web en Español - SamBlog'>
+	<Menu />
+	<main>
+		<div class="about">
+			<div class="text">
+				<h2>Sobre mí</h2>
+				<p>
+					Hola a todos!👋 Mi nombre es TecnoSamba21, soy un apasionado del desarrollo web y de la programación en general. 
+					<br><br>
+					Tengo una cuenta de GitHub en la que subo proyectos como este, <span><a href="https://github.com/TecnoSamba21">@TecnoSamba21</a></span>.
+				</p>
+			</div>
+			<a href="https://github.com/tecnosamba21"><Image src={tecnosamba21} alt="TecnoSamba21" /></a>
+		</div>
+		<h2>Artículos:</h2>
+		<div class="articles">
+			{
+				entries.map(entry => {
+					const {slug, data} = entry
+					const {title, author, tech} = data
+					let label
+					let class_name
+		
+					if (tech === 'JavaScript') {
+						label = JavaScript.label
+						class_name = JavaScript.class
+					} else if (tech === 'Html') {
+						label = Html.label
+						class_name = Html.class
+					} else if (tech === 'Css') {
+						label = Css.label
+						class_name = Css.class
+					} else {
+						label = Others.label
+						class_name = Others.class
+					}
+		
+					return (
+						<article>
+							<a href={'/entries/' + slug}><h1 transition:name={'title-' + slug}>{title}</h1></a>
+							<label class={class_name}>{label}</label>
+						</article>
+					
+					)
+				})
+			}
+		</div>
+	</main>
+	<style>
+		.about {
+			display: flex;
+			background-color: aliceblue;
+			border: 1.5px solid black;
+			border-radius: 6px;
+			padding: 2%;
+			align-items: center;
+			gap: 20%;
+			margin-right: 25px;
+			margin-left: 25px;
+			.text {
+				max-width: 60%;
+			}
+			img {
+				border-radius: 50%;
+				height: 16vw;
+				width: 16vw;
+				transition: all .5s;
+			}
+		}
+		.about img:hover {
+			scale: 110%;
+		}
+		main {
+			margin-left: 2%;
+		}
+		a {
+			text-decoration: none;
+			border-bottom: 0;
+			color: black;
+			max-width: 70%;
+		}
+		span {
+			background-image: linear-gradient(to right, rgb(191, 17, 191), rgb(10, 225, 121));
+			border-radius: 4px;
+		}
+		.articles {
+			display: grid;
+			gap: 6px;
+			grid-template-columns: repeat(3, 1fr);
+			grid-auto-rows: minmax(100px, auto);
+		}
+		@media (max-width: 1250px) {
+			.articles {
+				grid-template-columns: repeat(1, 1fr);
+				grid-auto-rows: minmax(100px, auto);
+			}
+			article {
+				margin-left: 2px;
+				margin-right: 7px;
+			}
+		}
+		article {
+			display: flex;
+			flex-direction: column;
+			border: 1px solid black;
+			border-radius: 5px;
+			padding: 5%;
+			align-items: start;
+			a {
+				align-self: start;
+			}
+		}
+		label {
+			font-family: 'Fira Code';
+		}
+		/* Tech Classes */
+		.javascript {
+			color: #888800;
+		}
+		.html {
+			color: #881d00;
+		}
+		.css {
+			color: #006d88;
+		}
+		.others {
+			color: #6b6b6a;
+		}
+	</style>
 </Layout>
