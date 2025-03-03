@@ -61,11 +61,12 @@ const Others = {
 					}
 		
 					return (
+					<a href={'/entries/' + slug}>
 						<article>
-							<a href={'/entries/' + slug}><h1 transition:name={'title-' + slug}>{title}</h1></a>
+							<h1 transition:name={'title-' + slug}>{title}</h1>
 							<label class={class_name}>{label}</label>
 						</article>
-					
+					</a>
 					)
 				})
 			}
@@ -102,7 +103,11 @@ const Others = {
 			text-decoration: none;
 			border-bottom: 0;
 			color: black;
-			max-width: 70%;
+			transition: all .5s;
+			scale: 90%;
+		}
+		a:hover {
+			scale: 100%;
 		}
 		span {
 			background-image: linear-gradient(to right, rgb(191, 17, 191), rgb(10, 225, 121));
