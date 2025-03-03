@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Menu from '../components/Menu.astro'
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
-import tecnosamba21 from './public/authors/tecnosamba21.jpg'
 
 const entries = await getCollection('entry')
 const JavaScript = {
@@ -36,7 +35,7 @@ const Others = {
 					Tengo una cuenta de GitHub en la que subo proyectos como este, <span><a href="https://github.com/TecnoSamba21">@TecnoSamba21</a></span>.
 				</p>
 			</div>
-			<a href="https://github.com/tecnosamba21"><Image src={tecnosamba21} alt="TecnoSamba21" /></a>
+			<a href="https://github.com/tecnosamba21"><img src="./tecnosamba21.jpg"/></a>
 		</div>
 		<h2>Artículos:</h2>
 		<div class="articles">
