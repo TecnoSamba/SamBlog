@@ -5,11 +5,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 import tailwindVite from '@astrojs/tailwind';
 
+import preact from '@astrojs/preact';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
 
-  integrations: [tailwindVite()]
+  integrations: [tailwindVite(), preact()]
 });

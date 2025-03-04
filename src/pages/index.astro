@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Menu from '../components/Menu.astro'
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
+import Entry from '../components/Entry.astro';
 
 const entries = await getCollection('entry')
 const JavaScript = {
@@ -37,7 +38,7 @@ const Others = {
 			</div>
 			<a href="https://github.com/tecnosamba21"><img src="./tecnosamba21.jpg"/></a>
 		</div>
-		<h2>Artículos:</h2>
+		<a href="/entries"><h2 transition:name="title-entries">Artículos:</h2></a>
 		<div class="articles">
 			{
 				entries.map(entry => {
@@ -62,10 +63,7 @@ const Others = {
 		
 					return (
 					<a href={'/entries/' + slug}>
-						<article>
-							<h1 transition:name={'title-' + slug}>{title}</h1>
-							<label class={class_name}>{label}</label>
-						</article>
+						<Entry title={title} class_name={class_name} slug={slug} label={label} />
 					</a>
 					)
 				})
@@ -124,37 +122,6 @@ const Others = {
 				grid-template-columns: repeat(1, 1fr);
 				grid-auto-rows: minmax(100px, auto);
 			}
-			article {
-				margin-left: 2px;
-				margin-right: 7px;
-			}
-		}
-		article {
-			display: flex;
-			flex-direction: column;
-			border: 1px solid black;
-			border-radius: 5px;
-			padding: 5%;
-			align-items: start;
-			a {
-				align-self: start;
-			}
-		}
-		label {
-			font-family: 'Fira Code';
-		}
-		/* Tech Classes */
-		.javascript {
-			color: #888800;
-		}
-		.html {
-			color: #881d00;
-		}
-		.css {
-			color: #006d88;
-		}
-		.others {
-			color: #6b6b6a;
 		}
 	</style>
 </Layout>

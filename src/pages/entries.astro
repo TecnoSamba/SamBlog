@@ -1,0 +1,77 @@
+---
+import Entry from "../components/Entry.astro";
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import Menu from "../components/Menu.astro";
+
+const entries = await getCollection("entry");
+const JavaScript = {
+    label: "JavaScript",
+    class: "javascript",
+};
+const Html = {
+    label: "Html",
+    class: "html",
+};
+const Css = {
+    label: "Css",
+    class: "css",
+};
+const Others = {
+    label: "Others",
+    class: "others",
+};
+---
+
+<Layout title="Artículos del Blog - SamBlog">
+    <Menu />
+    <main>
+        <h2 transition:name="title-entries">Artículos:</h2>
+        <div class="articles">
+            {
+                entries.map((entry) => {
+                    const { slug, data } = entry;
+                    const { title, author, tech } = data;
+                    let label;
+                    let class_name;
+
+                    if (tech === "JavaScript") {
+                        label = JavaScript.label;
+                        class_name = JavaScript.class;
+                    } else if (tech === "Html") {
+                        label = Html.label;
+                        class_name = Html.class;
+                    } else if (tech === "Css") {
+                        label = Css.label;
+                        class_name = Css.class;
+                    } else {
+                        label = Others.label;
+                        class_name = Others.class;
+                    }
+
+                    return (
+                        <Entry slug={slug} title={title} class_name={class_name} label={label} />
+                    );
+                })
+            }
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        margin: 30px;
+    }
+    .articles {
+        display: grid;
+        gap: 6px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(100px, auto);
+    }
+    @media (max-width: 1250px) {
+        .articles {
+            grid-template-columns: repeat(1, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+        }
+    }
+</style>

@@ -1,0 +1,66 @@
+---
+interface Props {
+    slug: string,
+    title: string,
+    class_name: string,
+    label: string
+}
+
+const {slug, title, class_name, label} = Astro.props
+---
+
+
+<a href={"/entries/" + slug}>
+    <article>
+        <h1 transition:name={"title-" + slug}>
+            {title}
+        </h1>
+        <label class={class_name}>{label}</label>
+    </article>
+</a>
+
+<style>
+    article {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 5%;
+        align-items: start;
+        a {
+            align-self: start;
+        }
+    }
+    label {
+        font-family: "Fira Code";
+    }
+    /* Tech Classes */
+    .javascript {
+        color: #888800;
+    }
+    .html {
+        color: #881d00;
+    }
+    .css {
+        color: #006d88;
+    }
+    .others {
+        color: #6b6b6a;
+    }
+    a {
+        text-decoration: none;
+        border-bottom: 0;
+        color: black;
+        transition: all 0.5s;
+        scale: 90%;
+    }
+    a:hover {
+        scale: 100%;
+    }
+    @media (max-width: 1250px) {
+        article {
+            margin-left: 2px;
+            margin-right: 7px;
+        }
+    }
+</style>

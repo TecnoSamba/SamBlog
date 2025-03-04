@@ -16,6 +16,7 @@ Estos poseen diferentes tipos de metadatos especiales para su configuración, es
 - Y otros muchos más
 > [Referencia de MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
 
+
 Pero hay uno que no se suele mencionar y este es el `srcdoc`. Esta propiedad nos permite **inyectar código HTML** en el *iframe* haciendo que no dependamos de una web externa para renderizar contenido en él:
 ~~~html
 <iframe
