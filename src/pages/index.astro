@@ -19,7 +19,7 @@ const Css = {
 	class: 'css'
 }
 const Others = {
-	label: 'Others',
+	label: 'Otros',
 	class: 'others'
 }
 ---
@@ -62,9 +62,7 @@ const Others = {
 					}
 		
 					return (
-					<a href={'/entries/' + slug}>
 						<Entry title={title} class_name={class_name} slug={slug} label={label} />
-					</a>
 					)
 				})
 			}
