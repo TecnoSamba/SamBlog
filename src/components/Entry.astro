@@ -15,7 +15,9 @@ const {slug, title, class_name, label} = Astro.props
         <h1 transition:name={"title-" + slug}>
             {title}
         </h1>
-        <label class={class_name}>{label}</label>
+        <div class="label">
+            <label class={class_name}>{label}</label>
+        </div>
     </article>
 </a>
 
@@ -27,12 +29,19 @@ const {slug, title, class_name, label} = Astro.props
         border-radius: 5px;
         padding: 5%;
         align-items: start;
+        height: 70%;
         a {
             align-self: start;
         }
     }
     label {
         font-family: "Fira Code";
+        justify-self: right;
+    }
+    .label {
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
     }
     /* Tech Classes */
     .javascript {
