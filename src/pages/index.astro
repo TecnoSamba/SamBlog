@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Menu from '../components/Menu.astro'
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
 import Entry from '../components/Entry.astro';
 
 const entries = await getCollection('entry')
@@ -38,7 +37,7 @@ const Others = {
 			</div>
 			<a href="https://github.com/tecnosamba21"><img src="./tecnosamba21.jpg"></a>
 		</div>
-		<a href="/entries"><h2 transition:name="title-entries">Artículos:</h2></a>
+		<a href="/entries" class="title-a"><h2 transition:name="title-entries" class="title">Artículos:</h2></a>
 		<div class="articles">
 			{
 				entries.map(entry => {
@@ -62,7 +61,7 @@ const Others = {
 					}
 		
 					return (
-						<Entry title={title} class_name={class_name} slug={slug} label={label} />
+						<Entry title={title} class_name={class_name} slug={slug} label={label}/>
 					)
 				})
 			}
@@ -93,8 +92,9 @@ const Others = {
 			scale: 110%;
 		}
 		main {
-			margin-left: 2%;
+			padding-left: 2%;
 		}
+		/*
 		a {
 			text-decoration: none;
 			border-bottom: 0;
@@ -105,6 +105,7 @@ const Others = {
 		a:hover {
 			scale: 100%;
 		}
+		*/
 		span {
 			background-image: linear-gradient(to right, rgb(191, 17, 191), rgb(10, 225, 121));
 			border-radius: 4px;
@@ -120,6 +121,36 @@ const Others = {
 				grid-template-columns: repeat(1, 1fr);
 				grid-auto-rows: minmax(100px, auto);
 			}
+		}
+		a {
+			width: min-content;
+			border-bottom: 0;
+			color: black;
+		}
+
+		@keyframes background-image {
+			from {background-color: none;}
+			to {background-color: rgb(235, 245, 254);}
+		}
+
+		@keyframes background-image-reverse {
+			from {background-color: rgb(235, 245, 254);}
+			to {background-color: none;}
+		}
+
+		.title {
+			color: black;
+			width: min-content;
+			padding: 2px;
+			border-radius: 4px;
+		}
+		.title:hover {
+			animation: background-image .5s;
+			animation-fill-mode: forwards;
+		}
+		.title:not(:hover) {
+			animation: background-image-reverse .5s;
+			animation-fill-mode: forwards;
 		}
 	</style>
 </Layout>

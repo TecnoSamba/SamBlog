@@ -35,7 +35,7 @@ const data = 'example-data'
 ---
 
 <!-- String de Concatenación -->
-<h1>`${data}example`</h1>
+<h1>{`${data}example`}</h1>
 ~~~
 
 Y de esta forma tan simple podemos concatenar `strings` en Astro. Espero que te haya sido de utilidad y... ¡Hasta otro post👋!
