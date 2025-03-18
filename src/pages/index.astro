@@ -1,73 +1,117 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Menu from '../components/Menu.astro'
-import { getCollection } from 'astro:content';
-import Entry from '../components/Entry.astro';
+import Layout from "../layouts/Layout.astro";
+import Menu from "../components/Menu.astro";
+import { getCollection } from "astro:content";
+import Entry from "../components/Entry.astro";
 
-const entries = await getCollection('entry')
+const entries = await getCollection("entry");
 const JavaScript = {
-	label: 'JavaScript',
-	class: 'javascript'
-}
+	label: "JavaScript",
+	class: "javascript",
+};
 const Html = {
-	label: 'Html',
-	class: 'html'
-}
+	label: "Html",
+	class: "html",
+};
 const Css = {
-	label: 'Css',
-	class: 'css'
-}
+	label: "Css",
+	class: "css",
+};
 const Others = {
-	label: 'Otros',
-	class: 'others'
-}
+	label: "Otros",
+	class: "others",
+};
 ---
 
-<Layout title='Desarrollo Web en Español - SamBlog'>
+<Layout title="Desarrollo Web en Español - SamBlog">
 	<Menu />
 	<main>
 		<div class="about">
 			<div class="text">
 				<h2>Sobre mí</h2>
 				<p>
-					Hola a todos!👋 Mi nombre es TecnoSamba21, soy un apasionado del desarrollo web y de la programación en general. 
-					<br><br>
-					Tengo una cuenta de GitHub en la que subo proyectos como este, <span><a href="https://github.com/TecnoSamba21">@TecnoSamba21</a></span>.
+					Hola a todos!👋 Mi nombre es TecnoSamba21, soy un apasionado
+					del desarrollo web y de la programación en general.
+					<br /><br />
+					Tengo una cuenta de GitHub en la que subo proyectos como este,
+					<span
+						><a href="https://github.com/TecnoSamba21"
+							>@TecnoSamba21</a
+						></span
+					>.
 				</p>
 			</div>
-			<a href="https://github.com/tecnosamba21"><img src="./tecnosamba21.jpg"></a>
+			<a href="https://github.com/tecnosamba21"
+				><img src="./tecnosamba21.jpg" /></a
+			>
 		</div>
-		<a href="/entries" class="title-a"><h2 transition:name="title-entries" class="title">Artículos:</h2></a>
+		<a href="/entries" class="title-a"
+			><h2 transition:name="title-entries" class="title">
+				Artículos:
+			</h2></a
+		>
 		<div class="articles">
 			{
-				entries.map(entry => {
-					const {slug, data} = entry
-					const {title, author, tech} = data
-					let label
-					let class_name
-		
-					if (tech === 'JavaScript') {
-						label = JavaScript.label
-						class_name = JavaScript.class
-					} else if (tech === 'Html') {
-						label = Html.label
-						class_name = Html.class
-					} else if (tech === 'Css') {
-						label = Css.label
-						class_name = Css.class
+				entries.map((entry) => {
+					const { slug, data } = entry;
+					const { title, author, tech } = data;
+					let label;
+					let class_name;
+
+					if (tech === "JavaScript") {
+						label = JavaScript.label;
+						class_name = JavaScript.class;
+					} else if (tech === "Html") {
+						label = Html.label;
+						class_name = Html.class;
+					} else if (tech === "Css") {
+						label = Css.label;
+						class_name = Css.class;
 					} else {
-						label = Others.label
-						class_name = Others.class
+						label = Others.label;
+						class_name = Others.class;
 					}
-		
+
 					return (
-						<Entry title={title} class_name={class_name} slug={slug} label={label}/>
-					)
+						<Entry
+							title={title}
+							class_name={class_name}
+							slug={slug}
+							label={label}
+						/>
+					);
 				})
 			}
 		</div>
 	</main>
 	<style>
+		@media (max-width: 1250px) {
+			.articles {
+				grid-template-columns: repeat(1, 1fr);
+				grid-auto-rows: minmax(100px, auto);
+			}
+			img {
+				height: 100px;
+				width: 100px;
+				margin-left: 30px;
+			}
+			.about {
+				gap: 10%;
+			}
+		}
+		@media (width > 1250px) {
+			img {
+				height: 300px;
+				width: 300px;
+			}
+			.about {
+				gap: 20%;
+			}
+			.articles {
+				grid-template-columns: repeat(3, 1fr);
+				grid-auto-rows: minmax(100px, auto);
+			}
+		}
 		.about {
 			display: flex;
 			background-color: aliceblue;
@@ -75,18 +119,15 @@ const Others = {
 			border-radius: 6px;
 			padding: 2%;
 			align-items: center;
-			gap: 20%;
 			margin-right: 25px;
 			margin-left: 25px;
 			.text {
 				max-width: 60%;
 			}
-			img {
-				border-radius: 50%;
-				height: 16vw;
-				width: 16vw;
-				transition: all .5s;
-			}
+		}
+		img {
+			border-radius: 50%;
+			transition: all 0.5s;
 		}
 		.about img:hover {
 			scale: 110%;
@@ -94,33 +135,17 @@ const Others = {
 		main {
 			padding-left: 2%;
 		}
-		/*
-		a {
-			text-decoration: none;
-			border-bottom: 0;
-			color: black;
-			transition: all .5s;
-			scale: 90%;
-		}
-		a:hover {
-			scale: 100%;
-		}
-		*/
 		span {
-			background-image: linear-gradient(to right, rgb(191, 17, 191), rgb(10, 225, 121));
+			background-image: linear-gradient(
+				to right,
+				rgb(191, 17, 191),
+				rgb(10, 225, 121)
+			);
 			border-radius: 4px;
 		}
 		.articles {
 			display: grid;
 			gap: 6px;
-			grid-template-columns: repeat(3, 1fr);
-			grid-auto-rows: minmax(100px, auto);
-		}
-		@media (max-width: 1250px) {
-			.articles {
-				grid-template-columns: repeat(1, 1fr);
-				grid-auto-rows: minmax(100px, auto);
-			}
 		}
 		a {
 			width: min-content;
@@ -129,13 +154,21 @@ const Others = {
 		}
 
 		@keyframes background-image {
-			from {background-color: none;}
-			to {background-color: rgb(235, 245, 254);}
+			from {
+				background-color: none;
+			}
+			to {
+				background-color: rgb(235, 245, 254);
+			}
 		}
 
 		@keyframes background-image-reverse {
-			from {background-color: rgb(235, 245, 254);}
-			to {background-color: none;}
+			from {
+				background-color: rgb(235, 245, 254);
+			}
+			to {
+				background-color: none;
+			}
 		}
 
 		.title {
@@ -145,11 +178,11 @@ const Others = {
 			border-radius: 4px;
 		}
 		.title:hover {
-			animation: background-image .5s;
+			animation: background-image 0.5s;
 			animation-fill-mode: forwards;
 		}
 		.title:not(:hover) {
-			animation: background-image-reverse .5s;
+			animation: background-image-reverse 0.5s;
 			animation-fill-mode: forwards;
 		}
 	</style>
