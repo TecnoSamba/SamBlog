@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
     slug: string,
     title: string,
@@ -25,7 +27,7 @@ const {slug, title, class_name, label} = Astro.props
     article {
         display: flex;
         flex-direction: column;
-        border: 1px solid black;
+        border: 1px solid var(--font);
         border-radius: 5px;
         padding: 5%;
         align-items: start;
@@ -59,7 +61,7 @@ const {slug, title, class_name, label} = Astro.props
     a {
         text-decoration: none;
         border-bottom: 0;
-        color: black;
+        color: var(--font);
         transition: all 0.5s;
         scale: 90%;
     }

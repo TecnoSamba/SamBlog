@@ -85,6 +85,9 @@ const Others = {
 		</div>
 	</main>
 	<style>
+		body {
+			background-color: var(--background);
+		}
 		@media (max-width: 1250px) {
 			.articles {
 				grid-template-columns: repeat(1, 1fr);
@@ -113,9 +116,10 @@ const Others = {
 			}
 		}
 		.about {
+			color: var(--font);
 			display: flex;
-			background-color: aliceblue;
-			border: 1.5px solid black;
+			background-color: var(--about-bg);
+			border: 1.5px solid var(--font);
 			border-radius: 6px;
 			padding: 2%;
 			align-items: center;
@@ -150,7 +154,7 @@ const Others = {
 		a {
 			width: min-content;
 			border-bottom: 0;
-			color: black;
+			color: var(--font);
 		}
 
 		@keyframes background-image {
@@ -158,13 +162,13 @@ const Others = {
 				background-color: none;
 			}
 			to {
-				background-color: rgb(235, 245, 254);
+				background-color: var(--hover);
 			}
 		}
 
 		@keyframes background-image-reverse {
 			from {
-				background-color: rgb(235, 245, 254);
+				background-color: var(--hover);
 			}
 			to {
 				background-color: none;
@@ -172,7 +176,7 @@ const Others = {
 		}
 
 		.title {
-			color: black;
+			color: var(--font);
 			width: min-content;
 			padding: 2px;
 			border-radius: 4px;

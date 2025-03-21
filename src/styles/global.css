@@ -1,5 +1,24 @@
+@media (prefers-color-scheme: dark) {
+    body {
+        --background: #343434;
+        --font: #e5e5e5;
+        --about-bg: rgb(103, 103, 103);
+        --highlight: rgb(205, 66, 255);
+        --hover: grey;
+    }
+}
+@media (prefers-color-scheme: light) {
+    body {
+        --background: white;
+        --font: black;
+        --about-bg: aliceblue;
+        --highlight: aquamarine;
+        --hover: rgb(235, 245, 254);
+    }
+}
+
 ::selection {
-    background-color: aquamarine;
+    background-color: var(--highlight);
 }
 
 ::-webkit-scrollbar {
