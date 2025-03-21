@@ -1,118 +1,42 @@
 ---
-import "../styles/global.css";
+import '../styles/global.css';
 ---
 
 <header>
-	<h1></h1>
-	<div class="text">
-		<a href="/"><h1>- {"<SamBlog />"} -</h1></a>
-		<span>El blog de <strong>desarrollo web</strong> en Español</span>
-	</div>
-	<button id="theme"></button>
-	<script is:inline>
-		const ICONS = {
-			light: './light.svg',
-			dark: './dark.svg'
-		}
-		const theme_switch = document.getElementById('theme')
-
-		let theme
-
-		if (localStorage.getItem('theme') != null) {
-			theme = localStorage.getItem('theme')
-		} else {
-			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark').matches) {
-				localStorage.setItem('theme', 'dark')
-				theme = 'dark'
-			} else {
-				localStorage.setItem('theme', 'light')
-				theme = 'light'
-			}
-		}
-
-		if (theme === 'dark') {
-			document.body.classList.add('dark')
-			document.body.classList.remove('light')
-			theme_switch.classList.add('dark')
-			theme_switch.classList.remove('light')
-		} else {
-			document.body.classList.add('light')
-			document.body.classList.remove('dark')
-			theme_switch.classList.add('light')
-			theme_switch.classList.remove('dark')
-		}
-
-		theme_switch.onclick = () => {
-			if (theme === 'dark') {
-				theme = 'light'
-				localStorage.setItem('theme', theme)
-				document.body.classList.add('light')
-				document.body.classList.remove('dark')
-				theme_switch.classList.add('light')
-				theme_switch.classList.remove('dark')
-			} else {
-				theme = 'dark'
-				localStorage.setItem('theme', 'dark')
-				document.body.classList.add('dark')
-				document.body.classList.remove('light')
-				theme_switch.classList.add('dark')
-				theme_switch.classList.remove('light')
-			}
-		}
-	</script>
+    <div class="text">
+        <a href="/"><h1>- {'<SamBlog />'} -</h1></a>
+        <span>El blog de <strong>desarrollo web</strong> en Español</span>
+    </div>
 </header>
 
 <style>
-	header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin: 10px;
-		border-radius: 7px;
-		gap: 2px;
-		.text {
+    header {
 			display: flex;
 			justify-content: center;
-			flex-direction: column;
 			align-items: center;
-			h1 {
-				font-family: "Fira Code";
+			margin: 10px;
+			border-radius: 7px;
+			gap: 2px;
+			.text {
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				align-items: center;
+				h1 {
+					font-family: 'Fira Code';
+				}
 			}
+			color: var(--font);
 		}
-		color: var(--font);
-	}
-	strong {
-		background: linear-gradient(to right, #e976ef, #a053e4);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		border-radius: 4px;
-	}
-	a {
-		text-decoration: none;
-		color: var(--font);
-		border-bottom: 0;
-	}
-	button {
-		height: 50px;
-		width: 50px;
-		border-radius: 999999px;
-		border: 0;
-		cursor: pointer;
-		background-size: cover;
-		background-position: center;
-		transition: all .5s;
-		&.light {
-			background-image: url('./light.svg');
-			background-color: white;
-			border: 2px solid black;
+		strong {
+			background: linear-gradient(to right,#e976ef, #a053e4);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			border-radius: 4px;
 		}
-		&.dark {
-			background-image: url('./dark.svg');
-			background-color: black;
-			border: 2px solid white;
+		a {
+			text-decoration: none;
+			color: var(--font);
+			border-bottom: 0;
 		}
-	}
-	button:hover {
-		border-color: grey;
-	}
 </style>
