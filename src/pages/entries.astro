@@ -3,6 +3,7 @@ import Entry from "../components/Entry.astro";
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import Menu from "../components/Menu.astro";
+import CursorScript from "../components/CursorScript.astro";
 
 const entries = await getCollection("entry");
 const JavaScript = {
@@ -25,6 +26,7 @@ const Others = {
 
 <Layout title="Artículos del Blog - SamBlog">
     <Menu />
+    <CursorScript transition:persist client:load />
     <main>
         <h2 transition:name="title-entries">Artículos:</h2>
         <div class="articles">

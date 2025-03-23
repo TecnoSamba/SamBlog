@@ -2,10 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import Menu from "../components/Menu.astro";
 import ReturnButton from "../components/ReturnButton.astro";
+import CursorScript from "../components/CursorScript.astro";
 ---
 
 <Layout title="404 Not Found - SamBlog">
     <Menu />
+    <CursorScript transition:persist client:load />
     <main>
         <header>
             <h1>{'¡Ups!'}, <code style="color: red; background-color: rgb(164, 164, 164);">404</code>: Not Found</h1>

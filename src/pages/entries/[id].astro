@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import '../../styles/global.css'
 import ReturnButton from "../../components/ReturnButton.astro";
+import CursorScript from "../../components/CursorScript.astro";
 
 export async function getStaticPaths() {
     const entries = await getCollection('entry')
@@ -22,6 +23,7 @@ const {Content} = await render(entry)
 ---
 
 <Layout title={title + ' - SamBlog'}>
+    <CursorScript transition:persist client:load />
     <main style="color: var(--font);">
         <header>
             <div class="title">

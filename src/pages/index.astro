@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Menu from "../components/Menu.astro";
+import CursorScript from "../components/CursorScript.astro";
 import { getCollection } from "astro:content";
 import Entry from "../components/Entry.astro";
 
@@ -23,7 +24,9 @@ const Others = {
 };
 ---
 
+
 <Layout title="Desarrollo Web en Español - SamBlog">
+	<CursorScript transition:persist="cursor"/>
 	<Menu />
 	<main>
 		<div class="about">
