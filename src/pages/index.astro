@@ -4,6 +4,7 @@ import Menu from "../components/Menu.astro";
 import CursorScript from "../components/CursorScript.astro";
 import { getCollection } from "astro:content";
 import Entry from "../components/Entry.astro";
+import Footer from "../components/Footer.astro";
 
 const entries = await getCollection("entry");
 const JavaScript = {
@@ -87,6 +88,7 @@ const Others = {
 			}
 		</div>
 	</main>
+	<Footer />
 	<style>
 		body {
 			background-color: var(--background);
@@ -141,6 +143,7 @@ const Others = {
 		}
 		main {
 			padding-left: 2%;
+			margin-bottom: 30px;
 		}
 		span {
 			background-image: linear-gradient(
