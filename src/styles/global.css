@@ -19,6 +19,7 @@
 
 ::selection {
     background-color: var(--highlight);
+    color: var(--font);
 }
 
 ::-webkit-scrollbar {
@@ -28,7 +29,7 @@
   
 
 ::-webkit-scrollbar-track {
-    background: #434343;
+    background: var(--background);
 }
   
 
@@ -64,10 +65,16 @@ pre {
 }
 
 a {
-    color: rgb(127, 168, 255);
+    color: var(--highlight);
     text-decoration: none;
-    border-bottom: 1px solid rgb(127, 168, 255);
+    border-bottom: 1px solid transparent;
+    transition: border .5s;
 }
+
+a:hover {
+    border-bottom: 1px solid var(--highlight);
+}
+
 blockquote {
     display: flex;
     border-left: 3px solid grey;

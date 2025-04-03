@@ -33,6 +33,6 @@ srcdoc="
 >
 </iframe>
 ~~~
-Y no sólo eso, podemos inyectar CSS y JavaScript con sus respectivas etiquetas dentro de este código HTML.
+Y no solo eso, podemos inyectar CSS y JavaScript con sus respectivas etiquetas dentro de este código HTML.
 
 Creo que esto va a facilitarte bastante la vida a la hora de trabajar con *iframes* o, por lo menos, enseñarte algo nuevo de HTML (que nunca viene mal), ¡hasta otro post👋!

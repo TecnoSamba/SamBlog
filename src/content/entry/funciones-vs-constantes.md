@@ -26,7 +26,7 @@ function imprimirNombre(nombre) {
 }
 ```
 
-- **Estructura más simple**: Al utilizar sólo una palabra clave y siendo "la manera más nativa" (por así decirlo) tiene una estructura bastante simple y legible:
+- **Estructura más simple**: Al utilizar solo una palabra clave y siendo "la manera más nativa" (por así decirlo) tiene una estructura bastante simple y legible:
     - `function`: palabra clave que declara la función
     - `nombre`: El nombre de la función que va a ser usado en el *scope* para su invocación
     - `(parametro)`: Los dos paréntesis entre los que vamos a declarar los parámetros
