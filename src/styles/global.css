@@ -58,6 +58,7 @@ pre {
     border-radius: 3px;
     code {
         background-color: transparent;
+        font-size: medium;
     }
     ::selection {
         background-color: rgba(245, 245, 245, 0.677);
