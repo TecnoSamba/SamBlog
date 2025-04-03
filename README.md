@@ -5,4 +5,5 @@
 Bienvenido al repo de SamBlog 👋! Aquí subo y actualizo el código de mi blog .
 
 > [!NOTE]
-> Samblog está desarrollado utilizando [Astro](https://astro.build) y [TypeScript](https://www.typescriptlang.org/)
+> Samblog está desarrollado utilizando [Astro](https://astro.build) y [TypeScript](https://www.typescriptlang.org)
+
