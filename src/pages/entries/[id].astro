@@ -1,40 +1,39 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import '../../styles/global.css'
+import "../../styles/global.css";
 import ReturnButton from "../../components/ReturnButton.astro";
 import CursorScript from "../../components/CursorScript.astro";
 
 export async function getStaticPaths() {
-    const entries = await getCollection('entry')
+    const entries = await getCollection("entry");
 
-    return entries.map(entry => ({
+    return entries.map((entry) => ({
         params: {
-            id: entry.slug
+            id: entry.slug,
         },
-        props: {entry}
-    }))
-    }
+        props: { entry },
+    }));
+}
 
+const { entry } = Astro.props;
+const { data, slug } = entry;
+const { title, author, img, date } = data;
 
-const {entry} = Astro.props
-const {data, slug} = entry
-const {title, author, img, date} = data
-
-const {Content} = await render(entry)
+const { Content } = await render(entry);
 ---
 
-<Layout title={title + ' - SamBlog'}>
+<Layout title={title + " - SamBlog"}>
     <CursorScript />
     <main style="color: var(--font);">
         <header>
             <div class="title">
-                <h1 transition:name={'title-' + slug}>{title}</h1>
+                <h1 transition:name={"title-" + slug}>{title}</h1>
             </div>
-            <img src={'/entries/' + img} alt="imagen del post">
+            <img src={"/entries/" + img} alt="imagen del post" />
             <div class="author-date">
                 <div class="author">
-                    <img src={'/authors/' + author + '.jpg'} alt="autor" />
+                    <img src={"/authors/" + author + ".jpg"} alt="autor" />
                     <span>{author}</span>
                 </div>
                 <div class="date">
@@ -53,7 +52,7 @@ const {Content} = await render(entry)
 
 <style>
     h1 {
-        font-family: 'Fira Code';
+        font-family: "Fira Code";
         font-size: 5ch;
     }
     header {
