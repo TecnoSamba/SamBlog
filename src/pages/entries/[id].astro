@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { data, slug } = entry;
-const { title, author, img, date } = data;
+const { title, author, date } = data;
 
 const { Content } = await render(entry);
 ---
@@ -27,10 +27,12 @@ const { Content } = await render(entry);
     <CursorScript />
     <main style="color: var(--font);">
         <header>
-            <div class="title">
-                <h1 transition:name={"title-" + slug}>{title}</h1>
+            <div class="title-sup">
+                <div class="title">
+                    <h1 transition:name={"title-" + slug}>{title}</h1>
+                </div>
+                <hr>
             </div>
-            <img src={"/entries/" + img} alt="imagen del post" />
             <div class="author-date">
                 <div class="author">
                     <img src={"/authors/" + author + ".jpg"} alt="autor" />
@@ -51,32 +53,34 @@ const { Content } = await render(entry);
 </Layout>
 
 <style>
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
     h1 {
         font-family: "Fira Code";
         font-size: 5ch;
     }
     header {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-auto-rows: minmax(100px, auto);
-        .title {
+        grid-template-columns: 1fr 5fr 1fr;
+        gap: 30px;
+        .title-sup {
             grid-column: 2/3;
-            grid-row: 1;
             display: flex;
             justify-content: start;
-        }
-        img {
-            grid-column: 2/3;
-            grid-row: 2;
-            border-radius: 5px;
-            height: 400px;
-            width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            hr {
+                width: 100%;
+            }
         }
         .author-date {
             display: grid;
-            grid-template-columns: 1fr 1fr;
             grid-column: 2/3;
-            grid-row: 3;
+            grid-template-columns: 1fr 1fr;
             img {
                 border-radius: 50%;
                 height: 4ch;

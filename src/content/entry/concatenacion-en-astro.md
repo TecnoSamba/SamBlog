@@ -1,7 +1,6 @@
 ---
 title: Concatenación de strings en Astro
 author: TecnoSamba21
-img: concatenacion-en-astro.jpg
 date: 04/03/2025
 tech: Otros
 ---

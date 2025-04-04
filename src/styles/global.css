@@ -61,6 +61,7 @@ pre {
     }
     ::selection {
         background-color: rgba(245, 245, 245, 0.677);
+        color: black;
     }
 }
 

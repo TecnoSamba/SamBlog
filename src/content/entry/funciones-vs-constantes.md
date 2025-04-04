@@ -1,7 +1,6 @@
 ---
 title: Funciones vs Constantes, ¿cuál usar?
 author: TecnoSamba21
-img: funciones-vs-constantes.jpg
 date: 16/03/2025
 tech: JavaScript
 ---

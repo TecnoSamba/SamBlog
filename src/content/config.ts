@@ -4,7 +4,6 @@ const entry = defineCollection({
     schema: z.object({
         title: z.string(),
         author: z.string(),
-        img: z.string(),
         date: z.string(),
         tech: z.string()
     })

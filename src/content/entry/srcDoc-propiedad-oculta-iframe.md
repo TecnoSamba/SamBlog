@@ -1,7 +1,6 @@
 ---
 title: Srcdoc, la propiedad oculta del iframe
 author: TecnoSamba21
-img: srcdoc-propiedad-oculta-iframe.jpg
 date: 03/03/2025
 tech: Html
 ---
