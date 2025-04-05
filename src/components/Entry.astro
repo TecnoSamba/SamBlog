@@ -1,16 +1,15 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
-    slug: string,
-    title: string,
-    class_name: string,
-    label: string
+    slug: string;
+    title: string;
+    class_name: string;
+    label: string;
 }
 
-const {slug, title, class_name, label} = Astro.props
+const { slug, title, class_name, label } = Astro.props;
 ---
-
 
 <a href={"/entries/" + slug}>
     <article>
@@ -24,6 +23,9 @@ const {slug, title, class_name, label} = Astro.props
 </a>
 
 <style>
+    a::before {
+        height: 0;
+    }
     article {
         display: flex;
         flex-direction: column;
