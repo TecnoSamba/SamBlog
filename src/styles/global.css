@@ -68,8 +68,6 @@ pre {
 a {
     color: var(--highlight);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border .5s;
     position: relative;
     padding: 3px;
 }
