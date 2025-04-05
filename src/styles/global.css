@@ -95,7 +95,12 @@ a:hover::before {
 
 blockquote {
     display: flex;
-    border-left: 3px solid grey;
-    padding-left: 8px;
-    height: min-content;
+    gap: 7px;
+}
+
+blockquote::before {
+    content: '';
+    width: 3px;
+    background-color: grey;
+    border-radius: 9999999px;
 }
