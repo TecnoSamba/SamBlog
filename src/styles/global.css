@@ -19,7 +19,6 @@
 
 ::selection {
     background-color: var(--highlight);
-    color: var(--font);
 }
 
 ::-webkit-scrollbar {
@@ -46,7 +45,6 @@ code {
     font-family: 'Fira Code';
     font-size: 1.5ch;
     background-color: grey;
-    font-weight: bold;
     color: white;
     border-radius: 3px;
     padding: 1px;
@@ -58,10 +56,10 @@ pre {
     border-radius: 3px;
     code {
         background-color: transparent;
+        font-size: 1.6ch;
     }
     ::selection {
-        background-color: rgba(245, 245, 245, 0.677);
-        color: black;
+        background-color: rgba(245, 245, 245, 0.375);
     }
 }
 
