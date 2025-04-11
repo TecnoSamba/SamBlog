@@ -28,7 +28,7 @@ Esta estructura de métodos asíncronos es un poco y ocupa mucho espacio de cód
 ~~~javascript
 const fs = require('node:fs')
 
-const contenido = async fs.readFile('/archivos/archivo.txt') // Esto ya le asigna el resultado a la varible 'contenido'
+const contenido = async fs.readFile('/archivos/archivo.txt') // Esto ya le asigna el resultado a la variable 'contenido'
 ~~~
 
 > [Referencia de MDN (asincronía)](https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Async_JS)
@@ -45,7 +45,7 @@ const fs = require('node:fs') // Instanciamos fs
 const contenido = fs.readFileSync('/archivos/archivo.txt') // Esto le asigna el resultado directamente a la variable 'contenido'
 ~~~
 
-Esta manera de usar *fs* simplifica el código que usa la librería pero también tiene un **impacto negativo** en el rendiemiento de tu app, asi que usa cualquiera de las dos formas según convenga.
+Esta manera de usar *fs* simplifica el código que usa la librería pero también tiene un **impacto negativo** en el rendimiento de tu app, asi que usa cualquiera de las dos formas según convenga.
 
 > [Documentación de *fs*](https://nodejs.org/es/learn/manipulating-files/reading-files-with-nodejs)
 
