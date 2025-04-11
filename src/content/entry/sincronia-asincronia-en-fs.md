@@ -45,12 +45,12 @@ const fs = require('node:fs') // Instanciamos fs
 const contenido = fs.readFileSync('/archivos/archivo.txt') // Esto le asigna el resultado directamente a la variable 'contenido'
 ~~~
 
-Esta menera de usar *fs* simplifica el código que usa la librería pero también tiene un **impacto negativo** en el rendiemiento de tu app, así que usa cualquiera de las dos formas según convenga.
+Esta manera de usar *fs* simplifica el código que usa la librería pero también tiene un **impacto negativo** en el rendiemiento de tu app, asi que usa cualquiera de las dos formas según convenga.
 
 > [Documentación de *fs*](https://nodejs.org/es/learn/manipulating-files/reading-files-with-nodejs)
 
 # Despedida
 
-Se me ocurrió la idea de hacer este post cuando estaba construyendo un servidor de archivos con *node.js* para aprovechar un ordenador fijo que tenía por aí. Hice tanto el back como el front, para el que utilicé *vanilla JavaScript* con [Vite](https://vite.dev). Me parece un proyecto interesante para hacer de *hobby*, a ver si te da alguna idea 😉.
+Se me ocurrió la idea de hacer este post cuando estaba construyendo un servidor de archivos con *node.js* para aprovechar un ordenador fijo que tenía por ahí. Hice tanto el back como el front, para el que utilicé *vanilla JavaScript* con [Vite](https://vite.dev). Me parece un proyecto interesante para hacer de *hobby*, a ver si te da alguna idea 😉.
 
 Hasta aquí por hoy, ¡Hasta el próximo post 👋!
