@@ -2,16 +2,17 @@
 import "../styles/global.css";
 
 interface Props {
-    slug: string;
+    slug?: string;
+    route: string;
     title: string;
     class_name: string;
     label: string;
 }
 
-const { slug, title, class_name, label } = Astro.props;
+const { slug, title, class_name, label, route } = Astro.props;
 ---
 
-<a href={"/entries/" + slug}>
+<a href={"/entries/" + route}>
     <article>
         <h1 transition:name={"title-" + slug}>
             {title}

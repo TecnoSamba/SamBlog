@@ -25,11 +25,13 @@ const Others = {
 	class: "others",
 };
 
-const finalEntries = entries.sort((a, b) => parseDate(b.data.date).getTime() - parseDate(a.data.date).getTime())
+const finalEntries = entries.sort(
+	(a, b) =>
+		parseDate(b.data.date).getTime() - parseDate(a.data.date).getTime(),
+);
 ---
 
 <!-- Meta tags -->
-
 <title>Desarrollo Web en Español - SamBlog</title>
 <meta name="title" content="Desarrollo Web en Español - SamBlog" />
 <meta
@@ -53,10 +55,7 @@ const finalEntries = entries.sort((a, b) => parseDate(b.data.date).getTime() - p
 	property="twitter:description"
 	content="SamBlog el blog de desarrollo web en Español! Posts sobre diversos temas relacionados con el desarrollo web full-stack para aprender algo nuevo cada día."
 />
-<meta
-	property="twitter:image"
-	content="/logo.png"
-/>
+<meta property="twitter:image" content="/logo.png" />
 
 <!-- End meta tags -->
 
@@ -116,9 +115,87 @@ const finalEntries = entries.sort((a, b) => parseDate(b.data.date).getTime() - p
 							class_name={class_name}
 							slug={slug}
 							label={label}
+							route={slug}
 						/>
 					);
 				})
+			}
+		</div>
+		<h2 style="color: #888800;">JavaScript:</h2>
+		<div class="articles">
+			{
+				finalEntries
+					.filter((entry) => entry.data.tech === "JavaScript")
+					.map((entry) => {
+						return (
+							<Entry
+								title={entry.data.title}
+								class_name="javascript"
+								slug={entry.slug + '-duplicated'}
+								route={entry.slug}
+								label="JavaScript"
+							/>
+						);
+					})
+			}
+		</div>
+		{
+			finalEntries.filter((entry) => entry.data.tech === "Css").length >
+			0 ? (
+				<h2 style="color: #888800;">Css:</h2>
+			) : null
+		}
+		<div class="articles">
+			{
+				finalEntries
+					.filter((entry) => entry.data.tech === "Css")
+					.map((entry) => {
+						return (
+							<Entry
+								title={entry.data.title}
+								class_name="css"
+								slug={entry.slug + '-duplicated'}
+								route={entry.slug}
+								label="Css"
+							/>
+						);
+					})
+			}
+		</div>
+		<h2 style="color: #d32e00;">Html:</h2>
+		<div class="articles">
+			{
+				finalEntries
+					.filter((entry) => entry.data.tech === "Html")
+					.map((entry) => {
+						return (
+							<Entry
+								title={entry.data.title}
+								class_name="html"
+								slug={entry.slug + '-duplicated'}
+								route={entry.slug}
+								label="Html"
+							/>
+						);
+					})
+			}
+		</div>
+		<h2 style="color: #6b6b6a;">Otros:</h2>
+		<div class="articles">
+			{
+				finalEntries
+					.filter((entry) => entry.data.tech === "Other")
+					.map((entry) => {
+						return (
+							<Entry
+								title={entry.data.title}
+								class_name="other"
+								slug={entry.slug + '-duplicated'}
+								route={entry.slug}
+								label="Otros"
+							/>
+						);
+					})
 			}
 		</div>
 	</main>
