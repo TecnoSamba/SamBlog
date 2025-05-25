@@ -5,6 +5,7 @@ import CursorScript from "../components/CursorScript.astro";
 import { getCollection } from "astro:content";
 import Entry from "../components/Entry.astro";
 import Footer from "../components/Footer.astro";
+import { parseDate } from "../lib/utils";
 
 const entries = await getCollection("entry");
 const JavaScript = {
@@ -23,6 +24,8 @@ const Others = {
 	label: "Otros",
 	class: "others",
 };
+
+const finalEntries = entries.sort((a, b) => parseDate(b.data.date).getTime() - parseDate(a.data.date).getTime())
 ---
 
 <!-- Meta tags -->
@@ -87,7 +90,7 @@ const Others = {
 		>
 		<div class="articles">
 			{
-				entries.map((entry) => {
+				finalEntries.map((entry) => {
 					const { slug, data } = entry;
 					const { title, author, tech } = data;
 					let label;
