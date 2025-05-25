@@ -23,12 +23,12 @@ fs.readFile('/archivos/archivo.txt') // Leemos un archivo, nos devuelve un callb
     })
 ~~~
 
-Esta estructura de métodos asíncronos es un poco y ocupa mucho espacio de código, por lo que existen otras maneras de trabajar con asíncronos como con la *keyword* `async` con la que podemos obtener el resultado de la lectura directamente como una variable:
+Esta estructura de métodos asíncronos es un poco compleja y ocupa mucho espacio de código, por lo que existen otras maneras de trabajar con asíncronos como con la *keyword* `await` con la que podemos obtener el resultado de la lectura directamente como una variable:
 
 ~~~javascript
 const fs = require('node:fs')
 
-const contenido = async fs.readFile('/archivos/archivo.txt') // Esto ya le asigna el resultado a la variable 'contenido'
+const contenido = await fs.readFile('/archivos/archivo.txt') // Esto ya le asigna el resultado a la variable 'contenido'
 ~~~
 
 > [Referencia de MDN (asincronía)](https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Async_JS)
@@ -51,6 +51,6 @@ Esta manera de usar *fs* simplifica el código que usa la librería pero tambié
 
 # Despedida
 
-Se me ocurrió la idea de hacer este post cuando estaba construyendo un servidor de archivos con *node.js* para aprovechar un ordenador fijo que tenía por ahí. Hice tanto el back como el front, para el que utilicé *vanilla JavaScript* con [Vite](https://vite.dev). Me parece un proyecto interesante para hacer de *hobby*, a ver si te da alguna idea 😉.
+Se me ocurrió la idea de hacer este post cuando estaba construyendo un [servidor de archivos](https://github.com/tecnosamba21/samfile) con *node.js* para aprovechar un ordenador fijo que tenía por ahí. Hice tanto el back como el front, para el que utilicé *vanilla JavaScript* con [Vite](https://vite.dev). Me parece un proyecto interesante para hacer de *hobby*, a ver si te da alguna idea 😉.
 
 Hasta aquí por hoy, ¡Hasta el próximo post 👋!
