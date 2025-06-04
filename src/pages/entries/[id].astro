@@ -24,6 +24,7 @@ const { Content } = await render(entry);
 ---
 
 <Layout title={title + " - SamBlog"}>
+    <div id="progressBar"></div>
     <CursorScript />
     <main style="color: var(--font);">
         <header>
@@ -58,6 +59,24 @@ const { Content } = await render(entry);
         flex-direction: column;
         gap: 50px;
     }
+
+    @keyframes progressGrow {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    #progressBar {
+        top: 0;
+        left: 0;
+        height: .5em;
+        width: 0;
+        background-color: var(--highlight);
+        position: fixed;
+
+        animation: progressGrow auto linear;
+        animation-timeline: scroll(root block);
+    }
+
     h1 {
         font-family: "Fira Code";
         font-size: 5ch;
