@@ -1,6 +1,6 @@
 ---
 title: Novedades del 2025 🎉
-author: TecnoSamba21
+author: TecnoSamba
 date: 25/05/2025
 tech: Other
 ---

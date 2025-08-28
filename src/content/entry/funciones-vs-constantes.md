@@ -1,6 +1,6 @@
 ---
 title: Funciones vs Constantes, ¿cuál usar?
-author: TecnoSamba21
+author: TecnoSamba
 date: 16/03/2025
 tech: JavaScript
 ---
@@ -18,7 +18,7 @@ Veamos los pros y contras de cada una:
 - **Invocable antes de su declaración**: Con las funciones tenemos la posibilidad de invocarlas antes de declararlas pudiendo organizar mejor nuestro código. Por ejemplo:
 
 ```javascript
-imprimirNombre('TecnoSamba21')
+imprimirNombre('TecnoSamba')
 
 function imprimirNombre(nombre) {
     console.log(`Mi nombre es ${nombre}`)

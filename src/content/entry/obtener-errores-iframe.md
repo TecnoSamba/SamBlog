@@ -1,6 +1,6 @@
 ---
 title: Obtener errores de ejecución de un iframe
-author: TecnoSamba21
+author: TecnoSamba
 date: 08/03/2025
 tech: JavaScript
 ---

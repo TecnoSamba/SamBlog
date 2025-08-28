@@ -1,6 +1,6 @@
 ---
 title: Srcdoc, la propiedad oculta del iframe
-author: TecnoSamba21
+author: TecnoSamba
 date: 03/03/2025
 tech: Html
 ---

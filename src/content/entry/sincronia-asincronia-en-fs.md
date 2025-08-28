@@ -1,6 +1,6 @@
 ---
 title: Sincronía y Asincronía en node:fs
-author: TecnoSamba21
+author: TecnoSamba
 date: 10/04/2025
 tech: JavaScript
 ---
@@ -51,6 +51,6 @@ Esta manera de usar *fs* simplifica el código que usa la librería pero tambié
 
 # Despedida
 
-Se me ocurrió la idea de hacer este post cuando estaba construyendo un [servidor de archivos](https://github.com/tecnosamba21/samfile) con *node.js* para aprovechar un ordenador fijo que tenía por ahí. Hice tanto el back como el front, para el que utilicé *vanilla JavaScript* con [Vite](https://vite.dev). Me parece un proyecto interesante para hacer de *hobby*, a ver si te da alguna idea 😉.
+Se me ocurrió la idea de hacer este post cuando estaba construyendo un [servidor de archivos](https://github.com/TecnoSamba/samfile) con *node.js* para aprovechar un ordenador fijo que tenía por ahí. Hice tanto el back como el front, para el que utilicé *vanilla JavaScript* con [Vite](https://vite.dev). Me parece un proyecto interesante para hacer de *hobby*, a ver si te da alguna idea 😉.
 
 Hasta aquí por hoy, ¡Hasta el próximo post 👋!
